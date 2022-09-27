@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  min-height: 60px;
+  color: #fff;
+}
+header .gnb_box {
+  display: flex;
+  align-items: center;
+}
+header img {
+  height: 50px;
+}
+header b {
+  margin: 0 20px 0 5px;
+  font-size: 1.2em;
+  color: inherit;
+}
+header p {
+  margin: 0 20px;
+  color: inherit;
+}

@@ -1,0 +1,125 @@
+.contents_wrap{
+  width: 100%;
+  height: calc(100vh - 62px);
+  padding: 3em 2em;
+  background: #f2f6ff;
+}
+/*=================
+  table
+===================*/
+table{
+  td,
+  th{
+    color: #000;
+  }
+  th{
+    font-weight: bold;
+  }
+  p{
+    margin-bottom: 0;
+    color: #000;
+  }
+  .inner_table{
+    width: 100%;
+    tr{ 
+           
+      &:first-child{
+        border-bottom: 1px dashed #ccc;
+      }
+      td{
+        padding: 0.5em 0;
+      }
+    }
+  }
+}
+/*=================
+  card
+===================*/
+.card{
+  h5{ margin-bottom: 0;}
+  &-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    h5{
+      font-weight: inherit;
+    }
+  }
+  &-title{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    form{
+      width: 100%;
+      display: flex;
+    }       
+  }  
+}
+.form-select{
+  min-width: 130px;
+  max-width: 250px;
+}
+
+/*=================
+  search bar
+===================*/
+.search_bar{
+  margin-bottom: 1em;
+  .form-select{
+    max-width: 130px;
+  }
+  .search-slt{
+    max-width: 400px;
+  }
+  >*{
+    margin-right: 0.5em;
+  }
+  svg{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+/*=================
+  pasination
+===================*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;  
+  list-style: none;
+  padding: 0;
+  li{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    
+    &:first-child{
+      border-radius: 5px 0 0 5px;
+    }
+    &:last-child{
+      border-radius: 0 5px 5px 0;
+    }
+    a{
+      text-decoration: none;
+      font-size: 1.2rem;
+      line-height: 1.2rem;
+    }
+    &.active,
+    &:hover {
+      background-color: #337ab7;
+      a{
+        color: white;
+      }
+    }
+  }
+  
+}
