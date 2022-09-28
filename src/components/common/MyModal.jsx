@@ -38,10 +38,10 @@ const MyModal = ({show, handleClose, onSubmit} ) => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
-          OK
+        <Button variant="secondary" onClick={handleClose}>
+          Close
         </Button>
-        <Button variant="primary" onClick={onSubmit}>
+        <Button type="submit" variant="primary" onClick={onSubmit}>
           Save Changes
         </Button>
       </Modal.Footer>
