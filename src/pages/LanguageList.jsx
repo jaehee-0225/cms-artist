@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import '../assets/css/common.css';
 import TableList from "../components/table/TableList.jsx";
+import MyModal from "../components/common/MyModal.jsx";
 
+import Table from "react-bootstrap/Table";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
@@ -10,7 +12,22 @@ import { GoSearch } from 'react-icons/go';
 
 
 
-const LanguageList = () => {
+
+const LanguageList = ({openModal}) => {
+  
+  // Modal
+  const [show, setShow] = useState(false);
+  const handleClick = () => {
+    setShow(true)
+  }  
+  const onSubmit= () => {
+    // 특정 로직
+    setShow(false);
+  }  
+  const handleClose = () => {
+    setShow(false);
+  } 
+
 
     return (
       <div className="language_container">        
@@ -43,14 +60,15 @@ const LanguageList = () => {
                   <option>미적용</option>
                 </Form.Select>
               </div>
-              <Button variant="primary" className="add">추가하기</Button>
+              <Button onClick={handleClick} variant="primary" className="add">추가하기</Button>
+              <Button onClick={openModal} variant="primary" className="add">추가하기</Button>
             </Card.Title>
             
             <TableList /> 
 
           </Card.Body>
         </Card>
-        
+        <MyModal show={show} handleClick={handleClick} onSubmit={onSubmit} handleClose={handleClose} />
       </div>
     );
   

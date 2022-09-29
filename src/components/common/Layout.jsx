@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
       <Header />
       {/* <div>{children}</div> */}
       <div className="contents_wrap">
-        <LanguageList />
+        <LanguageList/>
         {/* <LangTable /> */}
       </div>
       {/* <Footer /> */}

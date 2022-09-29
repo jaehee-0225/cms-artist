@@ -23,7 +23,7 @@ const LangKey = styled.p`
   word-break: break-all;
 `;
 
-const TableList = () => {
+const TableList = ( { handleClick, show, handleClose, onSubmit} ) => {
 
   const [posts, setPosts] = useState([]); //aixos 받아온 데이터 저장
   const [currentPosts, setCurrentPosts] = useState([]); //보여줄 포스트
@@ -37,7 +37,7 @@ const TableList = () => {
     setPage(page)
   };
 
-  //items호출
+  //items, api호출
   useEffect(() => {
     const fetchPosts = async () => {
       try{
@@ -57,18 +57,18 @@ const TableList = () => {
     return (<p className="mb-2 item_status" value={statusStr} style={{color: statusColor, fontWeight: 800}}><Circle style={{backgroundColor: statusColor}}></Circle>{statusStr}</p>);
   }
 
-  // Modal
-  const [show, setShow] = useState(false);
-  const handleClick = () => {
-    setShow(true)
-  }  
-  const onSubmit= () => {
-    // 특정 로직
-    setShow(false);
-  }  
-  const handleClose = () => {
-    setShow(false);
-  } 
+  // // Modal
+  // const [show, setShow] = useState(false);
+  // const handleClick = () => {
+  //   setShow(true)
+  // }  
+  // const onSubmit= () => {
+  //   // 특정 로직
+  //   setShow(false);
+  // }  
+  // const handleClose = () => {
+  //   setShow(false);
+  // } 
 
 
 

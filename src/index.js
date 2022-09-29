@@ -5,15 +5,18 @@ import ReactModal from "react-modal";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-// import ModalsProvider from "./components/common/ModalsProvider.js";
+import ModalsProvider from './components/modal/ModalsProvider.jsx';
 
 ReactModal.setAppElement("#root");
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    {/* <ModalsProvider> */}
-      <App /> 
-    {/* </ModalsProvider> */}
+    <ModalsProvider>
+      <App>
+        
+      </App> 
+    </ModalsProvider>
   </React.StrictMode>
 );
 
