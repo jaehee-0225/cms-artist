@@ -22,7 +22,6 @@ const LanguageList = () => {
   const [txtEn, setTxtEn] = useState("");
   const [txtKr, setTxtKr] = useState("");
   const [statusKey, setStatusKey] = useState("0");
-  // const [inputText, setInputText] = useState("");
 
 
   const handleClick = () => {

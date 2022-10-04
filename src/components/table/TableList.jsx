@@ -26,6 +26,7 @@ const LangKey = styled.p`
 const TableList = ( ) => {
   //페이징처리
   const [posts, setPosts] = useState([]); //aixos 받아온 데이터 저장
+  console.log(posts)
   const [currentPosts, setCurrentPosts] = useState([]); //보여줄 포스트
   const [page, setPage] = useState(1); //현재페이지
   const [postPerPage] = useState(10); //페이지당 아이템 개수
