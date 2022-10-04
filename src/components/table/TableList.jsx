@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Paging from "../../components/table/Paging.js";
-import MyModal from "../common/MyModal.jsx";
+import MyModalEdit from "../common/modal/MyModalEdit.jsx";
 // import ModalContext from "../../components/common/ModalContext.js";
 
 import Table from "react-bootstrap/Table";
@@ -23,8 +23,8 @@ const LangKey = styled.p`
   word-break: break-all;
 `;
 
-const TableList = ( { handleClick, show, handleClose, onSubmit} ) => {
-
+const TableList = ( ) => {
+  //페이징처리
   const [posts, setPosts] = useState([]); //aixos 받아온 데이터 저장
   const [currentPosts, setCurrentPosts] = useState([]); //보여줄 포스트
   const [page, setPage] = useState(1); //현재페이지
@@ -36,6 +36,7 @@ const TableList = ( { handleClick, show, handleClose, onSubmit} ) => {
     localStorage.setItem('current_page', page)
     setPage(page)
   };
+
 
   //items, api호출
   useEffect(() => {
@@ -51,24 +52,29 @@ const TableList = ( { handleClick, show, handleClose, onSubmit} ) => {
     fetchPosts();
   }, [indexOfFirstPost, indexOfLastPost, page]); 
 
+
+
+  //게시물 상태
   const render = (status) => {
-    const statusStr = status === 0 ? '대기' : status === 1 ? '적용' :'미적용';
-    const statusColor = status === 0 ? 'grey' : status === 1 ? 'green' :'red';
+    const statusStr = status === 1 ? '대기' : status === 0 ? '적용' :'미적용';
+    const statusColor = status === 1 ? 'grey' : status === 0 ? 'green' :'red';
     return (<p className="mb-2 item_status" value={statusStr} style={{color: statusColor, fontWeight: 800}}><Circle style={{backgroundColor: statusColor}}></Circle>{statusStr}</p>);
   }
 
-  // // Modal
-  // const [show, setShow] = useState(false);
-  // const handleClick = () => {
-  //   setShow(true)
-  // }  
-  // const onSubmit= () => {
-  //   // 특정 로직
-  //   setShow(false);
-  // }  
-  // const handleClose = () => {
-  //   setShow(false);
-  // } 
+  // Modal
+  const [show, setShow] = useState(false);
+  const handleClick = () => {
+    setShow(true)
+  }  
+  const onSubmit= () => {
+    // 특정 로직
+    setShow(false);
+  }  
+  const handleClose = () => {
+    setShow(false);
+  }
+
+  
 
 
 
@@ -114,7 +120,18 @@ const TableList = ( { handleClick, show, handleClose, onSubmit} ) => {
 
       <Paging totalCount={posts.length} page={page} postPerPage={postPerPage} pageRangeDisplayed={5} handlePageChange={handlePageChange} />
 
-      <MyModal show={show} onSubmit={onSubmit} handleClose={handleClose} />
+      <MyModalEdit 
+        show={show} 
+        onSubmit={onSubmit} 
+        handleClose={handleClose}
+        // langKey={langKey}
+        // txtEn={txtEn}
+        // txtKr={txtKr}
+        // keyHandler={keyHandler}
+        // txtEnHandler={txtEnHandler}
+        // txtKrHandler={txtKrHandler}
+        // SubmitHandler={SubmitHandler}
+      />
       
     </>
   )  
